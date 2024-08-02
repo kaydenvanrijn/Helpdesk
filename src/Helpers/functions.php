@@ -1,20 +1,20 @@
 <?php
 
 use Aviator\Helpdesk\Interfaces\NotificationFactoryInterface;
+
 /**
  * @return \Aviator\Helpdesk\Interfaces\NotificationFactoryInterface
  */
-function notification ()
+function notification()
 {
     return app(NotificationFactoryInterface::class);
 }
 
 /**
  * @param object $initialObject
- * @param string $path
  * @return mixed
  */
-function reduceProperties ($initialObject, string $path)
+function reduceProperties($initialObject, string $path)
 {
     return array_reduce(
         explode('.', $path),
@@ -28,19 +28,19 @@ function reduceProperties ($initialObject, string $path)
 }
 
 /**
- * @param string $name
  * @return mixed
  */
-function hd_route (string $name)
+function hd_route(string $name)
 {
     return config('helpdesk.routes.' . $name);
 }
 
 /**
  * Get the current agent. Return null if guest or user.
+ *
  * @return \Aviator\Helpdesk\Models\Agent|null
  */
-function hd_agent ()
+function hd_agent()
 {
     return auth()->user()->agent ?? null;
 }
@@ -48,7 +48,7 @@ function hd_agent ()
 /**
  * @return bool
  */
-function hd_is_agent ()
+function hd_is_agent()
 {
     return auth()->user() && auth()->user()->agent;
 }

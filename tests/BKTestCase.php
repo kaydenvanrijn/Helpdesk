@@ -2,7 +2,6 @@
 
 namespace Aviator\Helpdesk\Tests;
 
-use Throwable;
 use Aviator\Database\Migrations\CreateUsersTable;
 use Aviator\Helpdesk\HelpdeskServiceProvider;
 use Aviator\Helpdesk\Models\Agent;
@@ -15,11 +14,14 @@ use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Route;
 use Orchestra\Testbench\BrowserKit\TestCase as OrchestraBrowserKit;
 use PHPUnit\Framework\Assert;
+use Throwable;
 
 abstract class BKTestCase extends OrchestraBrowserKit
 {
     protected Make $make;
+
     protected Get $get;
+
     protected array $supers = [
         [
             'name' => 'Super Visor',
@@ -31,7 +33,7 @@ abstract class BKTestCase extends OrchestraBrowserKit
         ],
     ];
 
-    public function setUp (): void
+    public function setUp(): void
     {
         parent::setUp();
 
@@ -40,15 +42,15 @@ abstract class BKTestCase extends OrchestraBrowserKit
         $this->setUpDatabase();
 
         $this->artisan('migrate', [
-            '--database'    => 'testing',
+            '--database' => 'testing',
         ]);
 
         $this->createSupers();
 
         Notification::fake();
 
-        $this->make = new Make();
-        $this->get = new Get();
+        $this->make = new Make;
+        $this->get = new Get;
 
         Collection::macro('assertContains', function ($value) {
             Assert::assertTrue(
@@ -60,7 +62,6 @@ abstract class BKTestCase extends OrchestraBrowserKit
 
     /**
      * @param \Illuminate\Foundation\Application $app
-     *
      * @return array
      */
     protected function getPackageProviders($app)
@@ -82,9 +83,9 @@ abstract class BKTestCase extends OrchestraBrowserKit
         $app['config']->set('database.default', 'testing');
 
         $app['config']->set('database.connections.testing', [
-            'driver'   => 'sqlite',
+            'driver' => 'sqlite',
             'database' => ':memory:',
-            'prefix'   => '',
+            'prefix' => '',
         ]);
 
         if (isset($GLOBALS['altdb']) && $GLOBALS['altdb'] === true) {
@@ -100,13 +101,14 @@ abstract class BKTestCase extends OrchestraBrowserKit
     {
         // Create testing database fixtures
         include_once __DIR__ . '/../database/migrations/2017_01_01_000000_create_users_table.php';
-        (new CreateUsersTable())->up();
+        (new CreateUsersTable)->up();
     }
 
     /**
      * Create the supervisor user. This is necessary as the supervisor user
      * is the fallback for notifications where an assignment or team assignment
      * are not set.
+     *
      * @return void
      */
     protected function createSupers()
@@ -128,7 +130,7 @@ abstract class BKTestCase extends OrchestraBrowserKit
     /**
      * Set alternate table names for testing that the database names
      * are properly variable everywhere.
-     * @param $app
+     *
      * @return void
      */
     protected function setAlternateTablesInConfig($app)
@@ -152,7 +154,7 @@ abstract class BKTestCase extends OrchestraBrowserKit
         $app->config->set('helpdesk.tables.collaborators', $prefix . 'collaborators');
     }
 
-    protected function withoutErrorHandling ()
+    protected function withoutErrorHandling()
     {
         app()->instance(ExceptionHandler::class, new class extends Handler
         {

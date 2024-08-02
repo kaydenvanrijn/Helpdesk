@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateDeletedContentTable extends Migration
 {
-    public function up (): void
+    public function up(): void
     {
         $tables = config('helpdesk.tables');
 
@@ -21,7 +21,7 @@ class CreateDeletedContentTable extends Migration
         ], []);
     }
 
-    public function down (): void
+    public function down(): void
     {
         $tables = config('helpdesk.tables');
 

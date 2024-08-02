@@ -1,10 +1,13 @@
 <?php
 
+use Aviator\Helpdesk\Tests\User;
+use Aviator\Helpdesk\Helpers\UserCallbackProvider;
+use Aviator\Helpdesk\Notifications\Generic;
 return [
     /*
      * Define the user model
      */
-    'userModel' => \Aviator\Helpdesk\Tests\User::class,
+    'userModel' => User::class,
 
     /*
      * The email address column on the user model. When we need to look up the supervisor's
@@ -34,7 +37,7 @@ return [
          * this to match your own implementation. If you use multiple guards or don't
          * care about this setting, set this key to null.
          */
-        'user' => \Aviator\Helpdesk\Helpers\UserCallbackProvider::class,
+        'user' => UserCallbackProvider::class,
     ],
 
     'tables' => [
@@ -65,7 +68,7 @@ return [
         'name' => 'Helpdesk Notifier',
     ],
 
-    'notification' => \Aviator\Helpdesk\Notifications\Generic::class,
+    'notification' => Generic::class,
 
     'notifications' => [
         'opened' => [

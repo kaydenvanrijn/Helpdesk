@@ -101,7 +101,7 @@ class Ticket extends AbstractModel
         $content = $this->content;
 
         if (!$content) {
-            return new DeletedContent;
+            return new DeletedContent();
         }
 
         return $content;
@@ -796,7 +796,7 @@ class Ticket extends AbstractModel
                 static::getActualClassNameForMorph($class)
             );
         } catch (Error $error) {
-            $instance = tap(new DeletedContent, function ($instance) {
+            $instance = tap(new DeletedContent(), function ($instance) {
                 if (!$instance->getConnectionName()) {
                     $instance->setConnection($this->connection);
                 }

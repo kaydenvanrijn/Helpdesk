@@ -56,8 +56,8 @@ abstract class TestCase extends Orchestra
 
         Notification::fake();
 
-        $this->make = new Make;
-        $this->get = new Get;
+        $this->make = new Make();
+        $this->get = new Get();
         $this->call = new Call($this->app);
 
         TestResponse::macro(
@@ -187,7 +187,7 @@ abstract class TestCase extends Orchestra
     {
         // Create testing database fixtures
         include_once __DIR__ . '/../database/migrations/2017_01_01_000000_create_users_table.php';
-        (new CreateUsersTable)->up();
+        (new CreateUsersTable())->up();
     }
 
     /**

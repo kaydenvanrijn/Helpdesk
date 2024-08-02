@@ -67,7 +67,7 @@ class Generic extends Notification implements ShouldQueue
      */
     public function toMail(): MailMessage
     {
-        $message = new MailMessage;
+        $message = new MailMessage();
 
         $message->from($this->address, $this->name);
         $message->subject($this->subject);

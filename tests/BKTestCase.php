@@ -49,8 +49,8 @@ abstract class BKTestCase extends OrchestraBrowserKit
 
         Notification::fake();
 
-        $this->make = new Make;
-        $this->get = new Get;
+        $this->make = new Make();
+        $this->get = new Get();
 
         Collection::macro('assertContains', function ($value) {
             Assert::assertTrue(
@@ -101,7 +101,7 @@ abstract class BKTestCase extends OrchestraBrowserKit
     {
         // Create testing database fixtures
         include_once __DIR__ . '/../database/migrations/2017_01_01_000000_create_users_table.php';
-        (new CreateUsersTable)->up();
+        (new CreateUsersTable())->up();
     }
 
     /**
@@ -156,7 +156,7 @@ abstract class BKTestCase extends OrchestraBrowserKit
 
     protected function withoutErrorHandling()
     {
-        app()->instance(ExceptionHandler::class, new class extends Handler
+        app()->instance(ExceptionHandler::class, new class() extends Handler
         {
             public function __construct()
             {

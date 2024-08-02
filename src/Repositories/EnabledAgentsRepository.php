@@ -61,7 +61,7 @@ class EnabledAgentsRepository extends Repository
     {
         $userModel = config('helpdesk.userModel');
         /** @noinspection PhpUndefinedMethodInspection */
-        $table = (new $userModel)->getTable();
+        $table = (new $userModel())->getTable();
 
         $this->query->join(
             $table,

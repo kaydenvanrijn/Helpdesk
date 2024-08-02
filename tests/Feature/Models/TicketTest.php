@@ -46,7 +46,7 @@ class TicketTest extends TestCase
     {
         $ticket = $this->make->ticket;
 
-        $ticket->contents()->create(new GenericContent, [
+        $ticket->contents()->create(new GenericContent(), [
             'title' => 'test title',
             'body' => 'test body',
         ]);

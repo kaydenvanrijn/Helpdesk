@@ -19,7 +19,7 @@ class RepositoriesProvider extends ServiceProvider
         $this->app->bind(
             TicketsRepository::class,
             function () {
-                return new TicketsRepository(new Ticket, auth()->user());
+                return new TicketsRepository(new Ticket(), auth()->user());
             }
         );
     }

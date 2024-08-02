@@ -8,5 +8,5 @@ use Aviator\Helpdesk\Tests\Support\Make;
  */
 function tm(string $method, ...$args)
 {
-    return (new Make)->$method(...$args);
+    return (new Make())->$method(...$args);
 }

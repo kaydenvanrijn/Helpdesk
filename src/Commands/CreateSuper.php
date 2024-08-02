@@ -39,7 +39,7 @@ class CreateSuper extends Command
          */
         if ($callbackClass = config('helpdesk.callbacks.user')) {
             /** @var \Aviator\Helpdesk\Interfaces\HasUserCallback $class */
-            $class = new $callbackClass;
+            $class = new $callbackClass();
             $callback = $class->getUserCallback();
         }
 

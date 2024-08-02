@@ -200,7 +200,7 @@ abstract class TestCase extends Orchestra
     protected function createSupers()
     {
         foreach ($this->supers as $super) {
-            /** @var \Aviator\Helpdesk\Tests\Feature\Http\Dashboard\Acceptance\Tickets\Acceptance\Acceptance\Acceptance\Acceptance\Acceptance\Acceptance\Acceptance\Acceptance\Acceptance\Tickets\User $user */
+            /** @var \Aviator\Helpdesk\Tests\User $user */
             $user = User::query()->create(
                 [
                     'name' => $super['name'],

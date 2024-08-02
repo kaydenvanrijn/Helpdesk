@@ -1,7 +1,6 @@
 <?php
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-use Faker\Generator;
 use Aviator\Helpdesk\Models\Action;
 use Aviator\Helpdesk\Models\Agent;
 use Aviator\Helpdesk\Models\Assignment;
@@ -16,6 +15,7 @@ use Aviator\Helpdesk\Models\Team;
 use Aviator\Helpdesk\Models\TeamAssignment;
 use Aviator\Helpdesk\Models\Ticket;
 use Carbon\Carbon;
+use Faker\Generator;
 
 /*
  * Helpdesk factory facilities

@@ -1,8 +1,9 @@
 <?php
 
-use Aviator\Helpdesk\Tests\User;
 use Aviator\Helpdesk\Helpers\UserCallbackProvider;
 use Aviator\Helpdesk\Notifications\Generic;
+use Aviator\Helpdesk\Tests\User;
+
 return [
     /*
      * Define the user model

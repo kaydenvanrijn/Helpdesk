@@ -1,6 +1,7 @@
 <?php
 
 use Faker\Generator;
+
 $factory->define(config('helpdesk.userModel'), function (Generator $faker) {
     return [
         'name' => $faker->name,

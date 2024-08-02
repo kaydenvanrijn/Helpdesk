@@ -12,7 +12,7 @@ unset($xdebug);
 // Unset the first argument, the name of the script.
 unset($argv[0]);
 
-$command = new PHPUnit\TextUI\Command();
+$command = new PHPUnit\TextUI\Command;
 
 /*
  * Run PHPUnit, passing all the arguments in.

@@ -2,6 +2,7 @@
 
 namespace Aviator\Helpdesk\Tests\Support;
 
+use Exception;
 use Aviator\Helpdesk\Models\Action;
 use Aviator\Helpdesk\Models\Agent;
 use Aviator\Helpdesk\Models\Assignment;
@@ -72,7 +73,7 @@ class Make
     public function agents (int $count): Collection
     {
         if ($count <= 1) {
-            throw new \Exception('Count must be greater than 1.');
+            throw new Exception('Count must be greater than 1.');
         }
 
         return factory(Agent::class, $count)->create();
@@ -168,7 +169,7 @@ class Make
     public function tickets (int $quantity, User $user = null): Collection
     {
         if ($quantity <= 1) {
-            throw new \Exception('Quantity must be greater than 1.');
+            throw new Exception('Quantity must be greater than 1.');
         }
 
         $user = $user
@@ -218,6 +219,6 @@ class Make
             return $this->$name();
         }
 
-        throw new \Exception('Property ' . $name . ' not found.');
+        throw new Exception('Property ' . $name . ' not found.');
     }
 }

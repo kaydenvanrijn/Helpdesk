@@ -2,6 +2,7 @@
 
 namespace Aviator\Helpdesk\Models;
 
+use Error;
 use Aviator\Helpdesk\Exceptions\CreatorMustBeAUserException;
 use Aviator\Helpdesk\Exceptions\CreatorRequiredException;
 use Aviator\Helpdesk\Exceptions\SupervisorNotFoundException;
@@ -828,7 +829,7 @@ class Ticket extends AbstractModel
             $instance = $this->newRelatedInstance(
                 static::getActualClassNameForMorph($class)
             );
-        } catch (\Error $error) {
+        } catch (Error $error) {
             $instance = tap(new DeletedContent(), function ($instance) {
                 if (!$instance->getConnectionName()) {
                     $instance->setConnection($this->connection);

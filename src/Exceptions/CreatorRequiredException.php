@@ -2,6 +2,7 @@
 
 namespace Aviator\Helpdesk\Exceptions;
 
-class CreatorRequiredException extends \Exception
+use Exception;
+class CreatorRequiredException extends Exception
 {
 }

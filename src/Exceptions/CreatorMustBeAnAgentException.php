@@ -2,6 +2,7 @@
 
 namespace Aviator\Helpdesk\Exceptions;
 
-class CreatorMustBeAnAgentException extends \Exception
+use Exception;
+class CreatorMustBeAnAgentException extends Exception
 {
 }

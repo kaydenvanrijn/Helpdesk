@@ -2,6 +2,7 @@
 
 namespace Aviator\Helpdesk\Tests;
 
+use Throwable;
 use Aviator\Database\Migrations\CreateUsersTable;
 use Aviator\Helpdesk\HelpdeskServiceProvider;
 use Aviator\Helpdesk\Models\Agent;
@@ -159,11 +160,11 @@ abstract class BKTestCase extends OrchestraBrowserKit
             {
             }
 
-            public function report(\Throwable $e)
+            public function report(Throwable $e)
             {
             }
 
-            public function render($request, \Throwable $e)
+            public function render($request, Throwable $e)
             {
                 throw $e;
             }

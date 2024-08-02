@@ -1,11 +1,12 @@
 <?php
 
+use Aviator\Helpdesk\Interfaces\NotificationFactoryInterface;
 /**
  * @return \Aviator\Helpdesk\Interfaces\NotificationFactoryInterface
  */
 function notification ()
 {
-    return app(\Aviator\Helpdesk\Interfaces\NotificationFactoryInterface::class);
+    return app(NotificationFactoryInterface::class);
 }
 
 /**
